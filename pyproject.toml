@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "investec_open_api"
-version = "0.0.2"
+version = "0.0.3"
 authors = [
   { name="Devin Pearson", email="devin@blackhat.co.za" },
 ]
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/devinpearson/investec_open_api"
-"Bug Tracker" = "https://github.com/devinpearson/investec_open_api/issues"
+"Homepage" = "https://github.com/devinpearson/investec-open-api-python"
+"Bug Tracker" = "https://github.com/devinpearson/investec-open-api-python/issues"
