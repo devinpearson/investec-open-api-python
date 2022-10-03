@@ -25,11 +25,11 @@ Example Response
 ```json
 [
   {
-    'accountId': 'xxxxxxxxxxxxxxxxxxxxx', 
-    'accountNumber': '100xxxxxxxxxx', 
-    'accountName': 'Mr J Smith', 
-    'referenceName': 'Mr J Smith', 
-    'productName': 'Private Bank Account'
+    "accountId": "xxxxxxxxxxxxxxxxxxxxx", 
+    "accountNumber": "100xxxxxxxxxx", 
+    "accountName": "Mr J Smith", 
+    "referenceName": "Mr J Smith", 
+    "productName": "Private Bank Account"
   }, 
 ]
 ```
@@ -42,10 +42,10 @@ client.get_balance('account_id')
 Example Response
 ```json
 {
-  'accountId': 'xxxxxxxxxxxxxxxxxxxxx', 
-  'currentBalance': -2269.8, 
-  'availableBalance': 639.2, 
-  'currency': 'ZAR'
+  "accountId": "xxxxxxxxxxxxxxxxxxxxx", 
+  "currentBalance": -2269.8, 
+  "availableBalance": 639.2, 
+  "currency": "ZAR"
 }
 ```
 
@@ -58,19 +58,20 @@ client.get_account_transactions('account_id')
 Example Response
 ```json
 [
-  {'accountId': 'xxxxxxxxxxxxxxxxxxxxx', 
-  'type': 'DEBIT', 
-  'transactionType': 'DebitOrders', 
-  'status': 'POSTED', 
-  'description': 'COMPANY XXXXXXXXX', 
-  'cardNumber': '', 
-  'postedOrder': 1116, 
-  'postingDate': '2022-10-03', 
-  'valueDate': '2022-10-03', 
-  'actionDate': '2022-10-03', 
-  'transactionDate': '2022-10-03', 
-  'amount': 205.05, 
-  'runningBalance': -2269.8
+  {
+    "accountId": "xxxxxxxxxxxxxxxxxxxxx", 
+    "type": "DEBIT",  // Debit or credit
+    "transactionType": "DebitOrders", 
+    "status": "POSTED", 
+    "description": "COMPANY XXXXXXXXX", 
+    "cardNumber": "",     // the cc number if a cc was used
+    "postedOrder": 1116, // the transaction order
+    "postingDate": "2022-10-03", // date interest is credited or debted or when deposits are spendable
+    "valueDate": "2022-10-03", 
+    "actionDate": "2022-10-03", 
+    "transactionDate": "2022-10-03", // date the transaction took place
+    "amount": 205.05, 
+    "runningBalance": -2269.8 // account balance after transaction is posted
   },
 ]
 ```
@@ -91,12 +92,12 @@ Example Response
 ```json
 [
   {
-    'Code': 'ZA', 
-    'Name': 'South Africa'
+    "Code": "ZA", 
+    "Name": "South Africa"
   }, 
   {
-    'Code': 'GB', 
-    'Name': 'United Kingdom of Great Britain and Northern Ireland (the)'
+    "Code": "GB", 
+    "Name": "United Kingdom of Great Britain and Northern Ireland (the)"
   }
 ]
 ```
@@ -110,12 +111,12 @@ Example Result
 ```json
 [
   {
-    'Code': 'ZAR', 
-    'Name': 'South African Rand'
+    "Code": "ZAR", 
+    "Name": "South African Rand"
   }, 
   {
-    'Code': 'GBP', 
-    'Name': 'British Pound'
+    "Code": "GBP",
+    "Name": "British Pound"
   }
 ]
 ```
@@ -130,12 +131,19 @@ Example Result
 ```json
 [
   {
-    'Code': '7623', 
-    'Name': 'A/C, Refrigeration Repair'
+    "Code": "7623", 
+    "Name": "A/C, Refrigeration Repair"
   }, 
   {
-    'Code': '8931', 
-    'Name': 'Accounting/Bookkeeping Services'
+    "Code": "8931", 
+    "Name": "Accounting/Bookkeeping Services"
   }
 ]
+```
+
+## Build pypi package
+
+```shell
+python -m build
+python -m twine upload dist/*
 ```
